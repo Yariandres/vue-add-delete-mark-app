@@ -1,7 +1,3 @@
-# vue-todo-crud
-
-# todo-app
-
 # Vue.js Todo App
 
 * [x] Setup
