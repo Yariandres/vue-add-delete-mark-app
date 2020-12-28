@@ -5,6 +5,12 @@
 		</div>
 
 		<addTodo v-on:add-todo="addTodo"></addTodo>
+
+		<actionButtons
+			v-on:remove-all-todos="removeAllTodos"
+			v-on:mark-all-completed="markAllCompleted"
+		></actionButtons>
+
 		<Todos v-bind:todos="todos" v-on:delete-todo="deleteTodoItem"></Todos>
 	</div>
 </template>
@@ -12,12 +18,14 @@
 <script>
 	import Todos from './views/Todos';
 	import addTodo from './views/AddTodo';
+	import ActionButtons from './views/ActionButtons';
 
 	export default {
 		name: 'app',
 		components: {
 			Todos,
 			addTodo,
+			ActionButtons,
 		},
 		data() {
 			return {
@@ -43,11 +51,16 @@
 		methods: {
 			deleteTodoItem(id) {
 				this.todos = this.todos.filter(todo => todo.id !== id);
-
-      },
-      addTodo(newTodo) {
-        this.todos = [...this.todos, newTodo]
-      }
+			},
+			addTodo(newTodo) {
+				this.todos = [newTodo, ...this.todos];
+			},
+			removeAllTodos() {
+				this.todos = [];
+			},
+			markAllCompleted() {
+				this.todos.forEach(todo => todo.completed = true);
+			},
 		},
 	};
 </script>

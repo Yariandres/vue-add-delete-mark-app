@@ -1,6 +1,5 @@
 <template>
-	<div>		
-
+	<div>
 		<div class="todolist">
 			<ul
 				class="listGroup"
@@ -21,7 +20,7 @@
 
 	export default {
 		components: { TodoItem },
-		props: ['todos']		
+		props: ['todos'],
 	};
 </script>
 
@@ -29,7 +28,6 @@
 	.listGroup {
 		padding: 10px 20px;
 		margin: auto;
-		background-color: #fff679;
 		width: 50%;
 		height: 100%;
 	}

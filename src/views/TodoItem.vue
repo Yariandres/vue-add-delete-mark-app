@@ -1,14 +1,16 @@
 <template>
 	<div>
 		<li class="listItem">
+			<input type="checkbox" v-on:change="markComplete" />
 			<p v-bind:class="{ 'isComplete': todo.completed }">
 				{{ todo.name }}
 			</p>
 
 			<span>
-				<input type="checkbox" v-on:change="markComplete" />
-
-				<button class="btnDelete" @click="$emit('delete-todo', todo.id )">
+				<button
+					class="btnDelete"
+					@click="$emit('delete-todo', todo.id)"
+				>
 					Delete
 				</button>
 			</span>
@@ -33,7 +35,9 @@
 		list-style: none;
 		font-weight: bold;
 		padding: 20px 20px;
-		border: 1px solid rgb(221, 222, 223);
+
+		background-color: #75f1e1;
+		border: 4px solid rgb(7, 6, 31);
 		border-radius: 10px;
 		margin: 10px 0;
 
@@ -47,11 +51,15 @@
 
 	.btnDelete {
 		background-color: orangered;
-		border: none;
+		border: 4px solid rgb(7, 6, 31);
+		border-radius: 10px;
 		padding: 10px;
 		font-weight: bold;
 		color: #fff;
 		cursor: pointer;
+	}
+	p {
+		margin-left: 10px;
 	}
 	.isComplete {
 		text-decoration: line-through;
